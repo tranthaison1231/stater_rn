@@ -1,6 +1,6 @@
 import MapView from 'react-native-maps'; // remove PROVIDER_GOOGLE import if not using Google Maps
 import React from 'react';
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const DetailsScreen = ({navigation}) => {
+const DetailsScreen = ({ navigation }) => {
   return (
     <MapView
       style={styles.map}
