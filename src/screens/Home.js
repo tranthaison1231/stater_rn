@@ -19,7 +19,8 @@ const HomeScreen = ({ navigation }) => {
 };
 
 HomeScreen.propTypes = {
-  navigation: PropTypes.node.isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  navigation: PropTypes.object.isRequired,
 };
 
 export default HomeScreen;

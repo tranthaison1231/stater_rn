@@ -14,8 +14,8 @@ const ImageDetail = ({ title, image, score }) => {
 
 ImageDetail.propTypes = {
   title: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-  score: PropTypes.string.isRequired,
+  image: PropTypes.node.isRequired,
+  score: PropTypes.number.isRequired,
 };
 
 export default ImageDetail;

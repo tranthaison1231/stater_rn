@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const DetailsScreen = ({ navigation }) => {
+const DetailsScreen = () => {
   return (
     <MapView
       style={styles.map}
@@ -34,5 +34,7 @@ const DetailsScreen = ({ navigation }) => {
     />
   );
 };
+
+DetailsScreen.propTypes = {};
 
 export default DetailsScreen;
