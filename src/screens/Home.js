@@ -14,6 +14,20 @@ const HomeScreen = ({ navigation }) => {
         title="Go to Image"
         onPress={() => navigation.navigate('Image')}
       />
+      <Button
+        title="Go to Counter"
+        onPress={() => navigation.navigate('Counter')}
+      />
+      <Button
+        title="Go to Color"
+        onPress={() => navigation.navigate('Color')}
+      />
+      <Button
+        title="Go to Square"
+        onPress={() => navigation.navigate('Square')}
+      />
+      <Button title="Go to Text" onPress={() => navigation.navigate('Text')} />
+      <Button title="Go to Box" onPress={() => navigation.navigate('Box')} />
     </SafeAreaView>
   );
 };

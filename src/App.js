@@ -1,5 +1,5 @@
 import React from 'react';
-import AppContainer from './src/screens';
+import AppContainer from './screens';
 
 const App = () => {
   return <AppContainer />;
