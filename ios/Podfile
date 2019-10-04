@@ -42,6 +42,7 @@ target 'stater_rn' do
   pod 'react-native-google-maps', :path => rn_maps_path
   pod 'GoogleMaps'
   pod 'Google-Maps-iOS-Utils'
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
   use_native_modules!
 
 end

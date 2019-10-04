@@ -8,6 +8,7 @@ import ColorScreen from './Color';
 import SquareScreen from './Square';
 import TextScreen from './Text';
 import BoxScreen from './Box';
+import SearchScreen from './Search';
 
 const AppNavigator = createStackNavigator(
   {
@@ -24,6 +25,12 @@ const AppNavigator = createStackNavigator(
     Square: SquareScreen,
     Text: TextScreen,
     Box: BoxScreen,
+    Search: {
+      screen: SearchScreen,
+      navigationOptions: {
+        title: 'Bussiness Search',
+      },
+    },
   },
   {
     initialRouteName: 'Home',
