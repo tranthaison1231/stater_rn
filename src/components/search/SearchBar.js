@@ -1,20 +1,32 @@
 import React from 'react';
-import { Text } from 'react-native';
 import styled from 'styled-components';
-import Icon from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/FontAwesome';
+
+Icon.loadFont();
 
 export const StyledSearchBar = styled.View`
   background-color: #f0eeee;
   height: 50px;
   border-radius: 5px;
   margin: 0 15px;
+  flex-direction: row;
+`;
+
+export const StyledTextInput = styled.TextInput`
+  flex: 1;
+  font-size: 18px;
+`;
+
+export const StyledIcon = styled(Icon)`
+  align-self: center;
+  margin: 0 15px;
 `;
 
 const SearchBar = () => {
   return (
     <StyledSearchBar>
-      <Icon size={30} name="ios-trash" color="red" />
-      <Text> Hello SearchBar </Text>
+      <StyledIcon size={40} name="rocket" />
+      <StyledTextInput placeholder="Search" />
     </StyledSearchBar>
   );
 };
