@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import PropTypes from 'prop-types';
 
 Icon.loadFont();
 
@@ -22,16 +23,25 @@ export const StyledIcon = styled(Icon)`
   margin: 0 15px;
 `;
 
-const SearchBar = () => {
+const SearchBar = ({ term, onTermChange }) => {
   return (
     <StyledSearchBar>
       <StyledIcon size={40} name="rocket" />
-      <StyledTextInput placeholder="Search" />
+      <StyledTextInput
+        autoCapitalize="none"
+        autoCorrect={false}
+        placeholder="Search"
+        value={term}
+        onChangeText={newTerm => onTermChange(newTerm)}
+      />
     </StyledSearchBar>
   );
 };
 
-SearchBar.propTypes = {};
+SearchBar.propTypes = {
+  term: PropTypes.string.isRequired,
+  onTermChange: PropTypes.func.isRequired,
+};
 
 SearchBar.defaultProps = {};
 
