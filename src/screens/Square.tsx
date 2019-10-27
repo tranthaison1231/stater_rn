@@ -11,7 +11,7 @@ type StyledColorProps = {
 const StyledColor = styled(View)`
   height: 100;
   width: 100;
-  background-color: ${(props: StyledColorProps) => props.ramdomRgb};
+  background-color: ${(props: StyledColorProps): string => props.ramdomRgb};
 `;
 
 const SquareScreen: FC = () => {
@@ -20,18 +20,18 @@ const SquareScreen: FC = () => {
     <View>
       <ColorCounter
         color="Red"
-        onIncrease={() => handleColor('red', 15)}
-        onDecrease={() => handleColor('red', -15)}
+        onIncrease={(): void | null => handleColor('red', 15)}
+        onDecrease={(): void | null => handleColor('red', -15)}
       />
       <ColorCounter
         color="Green"
-        onIncrease={() => handleColor('green', 15)}
-        onDecrease={() => handleColor('green', -15)}
+        onIncrease={(): void | null => handleColor('green', 15)}
+        onDecrease={(): void | null => handleColor('green', -15)}
       />
       <ColorCounter
         color="Blue"
-        onIncrease={() => handleColor('blue', 15)}
-        onDecrease={() => handleColor('blue', -15)}
+        onIncrease={(): void | null => handleColor('blue', 15)}
+        onDecrease={(): void | null => handleColor('blue', -15)}
       />
       <StyledColor ramdomRgb={color} />
     </View>

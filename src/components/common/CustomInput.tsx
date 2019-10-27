@@ -1,5 +1,4 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 import { TextInput } from 'react-native';
 
@@ -9,7 +8,15 @@ const StyledTextInput = styled(TextInput)`
   margin: 8px;
 `;
 
-const CustomInput = ({ onChangeText, value }) => {
+interface CustomInputProps {
+  onChangeText: (text: string) => void;
+  value: string;
+}
+
+const CustomInput: FC<CustomInputProps> = ({
+  onChangeText,
+  value,
+}: CustomInputProps) => {
   return (
     <StyledTextInput
       underlineColorAndroid="transparent"

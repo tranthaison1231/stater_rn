@@ -7,7 +7,11 @@ interface ImageDetailProps {
   score: number;
 }
 
-const ImageDetail: FC<ImageDetailProps> = ({ title, image, score }) => {
+const ImageDetail: FC<ImageDetailProps> = ({
+  title,
+  image,
+  score,
+}: ImageDetailProps) => {
   return (
     <View>
       <Image source={image} />

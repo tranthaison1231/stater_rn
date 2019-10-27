@@ -8,8 +8,8 @@ const SearchScreen: FC = () => {
     <View>
       <SearchBar
         term={term}
-        onTermChange={newTerm => setTerm(newTerm)}
-        onTermSubmit={() => console.log('submit')}
+        onTermChange={(newTerm): void => setTerm(newTerm)}
+        onTermSubmit={(): void => console.log('submit')}
       />
       <Text> Hello SearchScreen </Text>
       <Text>{term}</Text>

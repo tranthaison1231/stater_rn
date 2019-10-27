@@ -1,6 +1,11 @@
 import { useState } from 'react';
 
-const useColor = () => {
+interface UseColorProps {
+  color: string;
+  handleColor(color: string, change: number): void | null;
+}
+
+const useColor = (): UseColorProps => {
   const [red, setRed] = useState<number>(0);
   const [green, setGreen] = useState<number>(0);
   const [blue, setBlue] = useState<number>(0);
@@ -23,7 +28,7 @@ const useColor = () => {
         return null;
     }
   };
-  const color: string = `rgb(${red}, ${green}, ${blue})`;
+  const color = `rgb(${red}, ${green}, ${blue})`;
   return { color, handleColor };
 };
 

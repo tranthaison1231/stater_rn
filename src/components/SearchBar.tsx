@@ -38,7 +38,7 @@ const SearchBar: FC<SearchBarProps> = ({
   term,
   onTermChange,
   onTermSubmit,
-}) => {
+}: SearchBarProps) => {
   return (
     <StyledSearchBar>
       <StyledIcon size={40} name="rocket" />

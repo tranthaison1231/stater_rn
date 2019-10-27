@@ -6,6 +6,7 @@ import {
   NativeSyntheticEvent,
   NativeTouchEvent,
 } from 'react-native';
+
 interface ColorCounterProps {
   color: string;
   onIncrease: (ev: NativeSyntheticEvent<NativeTouchEvent>) => void;
@@ -16,7 +17,7 @@ const ColorCounter: FC<ColorCounterProps> = ({
   color,
   onIncrease,
   onDecrease,
-}) => {
+}: ColorCounterProps) => {
   return (
     <View>
       <Text> {color}</Text>

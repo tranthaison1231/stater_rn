@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { FC } from 'react';
 import AppContainer from 'screens';
 
-const App = () => {
+const App: FC = () => {
   return <AppContainer />;
 };
 

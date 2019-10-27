@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import MapView from 'react-native-maps'; // remove PROVIDER_GOOGLE import if not using Google Maps
 import styled from 'styled-components';
 
@@ -10,7 +10,7 @@ const StyledMapView = styled(MapView)`
   bottom: 0;
 `;
 
-const DetailsScreen = () => {
+const DetailsScreen: FC = () => {
   return (
     <StyledMapView
       initialRegion={{
@@ -22,7 +22,5 @@ const DetailsScreen = () => {
     />
   );
 };
-
-DetailsScreen.propTypes = {};
 
 export default DetailsScreen;

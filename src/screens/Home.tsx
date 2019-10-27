@@ -6,35 +6,41 @@ type HomeScreenProps = {
   navigation: NavigationStackProp;
 };
 
-const HomeScreen: FC<HomeScreenProps> = ({ navigation }) => {
+const HomeScreen: FC<HomeScreenProps> = ({ navigation }: HomeScreenProps) => {
   return (
     <SafeAreaView>
       <Text> Hello</Text>
       <Button
         title="Go to Details"
-        onPress={() => navigation.navigate('Details')}
+        onPress={(): boolean => navigation.navigate('Details')}
       />
       <Button
         title="Go to Image"
-        onPress={() => navigation.navigate('Image')}
+        onPress={(): boolean => navigation.navigate('Image')}
       />
       <Button
         title="Go to Counter"
-        onPress={() => navigation.navigate('Counter')}
+        onPress={(): boolean => navigation.navigate('Counter')}
       />
       <Button
         title="Go to Color"
-        onPress={() => navigation.navigate('Color')}
+        onPress={(): boolean => navigation.navigate('Color')}
       />
       <Button
         title="Go to Square"
-        onPress={() => navigation.navigate('Square')}
+        onPress={(): boolean => navigation.navigate('Square')}
       />
-      <Button title="Go to Text" onPress={() => navigation.navigate('Text')} />
-      <Button title="Go to Box" onPress={() => navigation.navigate('Box')} />
+      <Button
+        title="Go to Text"
+        onPress={(): boolean => navigation.navigate('Text')}
+      />
+      <Button
+        title="Go to Box"
+        onPress={(): boolean => navigation.navigate('Box')}
+      />
       <Button
         title="Go to Search"
-        onPress={() => navigation.navigate('Search')}
+        onPress={(): boolean => navigation.navigate('Search')}
       />
     </SafeAreaView>
   );

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, FC } from 'react';
 import { View, Button, Text, FlatList } from 'react-native';
 import styled from 'styled-components';
 
@@ -9,10 +9,10 @@ interface StyledColorProps {
 const StyledColor = styled(View)`
   height: 100;
   width: 100;
-  background-color: ${(props: StyledColorProps) => props.ramdomRgb};
+  background-color: ${(props: StyledColorProps): string => props.ramdomRgb};
 `;
 
-const ColorScreen = () => {
+const ColorScreen: FC = () => {
   const [colors, setColors] = useState<string[]>([]);
   const ramdomRgb = (): string => {
     const red = Math.floor(Math.random() * 256);
@@ -24,13 +24,13 @@ const ColorScreen = () => {
     <View>
       <Button
         title="Add Color"
-        onPress={() => setColors([...colors, ramdomRgb()])}
+        onPress={(): void => setColors([...colors, ramdomRgb()])}
       />
       <Text> Hello ColorScreen</Text>
       <FlatList
-        keyExtractor={(item, index) => `${item}${index}`}
+        keyExtractor={(item, index): string => `${item}${index}`}
         data={colors}
-        renderItem={({ item }) => {
+        renderItem={({ item }): any => {
           return <StyledColor ramdomRgb={item} />;
         }}
       />

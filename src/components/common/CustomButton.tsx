@@ -1,14 +1,24 @@
 /* eslint-disable react/require-default-props */
-import React from 'react';
-import PropTypes from 'prop-types';
-import { TouchableOpacity } from 'react-native';
+import React, { FC, ReactNode } from 'react';
+import {
+  TouchableOpacity,
+  View,
+  Text,
+  GestureResponderEvent,
+} from 'react-native';
 import styled from 'styled-components';
 
-const StyledView = styled.View`
+interface StyledProps {
+  backgroundColor?: string;
+  color?: string;
+}
+
+const StyledView = styled(View)`
   padding: 10px;
   margin: 5px;
   border-radius: 4px;
-  background-color: ${props => props.backgroundColor || '#1976d2'};
+  background-color: ${(props: StyledProps): string =>
+    props.backgroundColor || '#1976d2'};
   shadow-color: #000;
   shadow-offset: 0px 2px;
   shadow-opacity: 0.4;
@@ -16,12 +26,24 @@ const StyledView = styled.View`
   elevation: 6;
 `;
 
-const StyledText = styled.Text`
-  color: ${props => props.color || '#fff'};
+const StyledText = styled(Text)`
+  color: ${(props: StyledProps): string => props.color || '#fff'};
   font-weight: 500;
 `;
 
-const CustomButton = ({ children, onPress, backgroundColor, color }) => {
+interface CustomButtonProps {
+  children: ReactNode;
+  onPress?: ((event: GestureResponderEvent) => void) | undefined;
+  backgroundColor?: string;
+  color?: string;
+}
+
+const CustomButton: FC<CustomButtonProps> = ({
+  children,
+  onPress,
+  backgroundColor,
+  color,
+}: CustomButtonProps) => {
   return (
     <TouchableOpacity onPress={onPress}>
       <StyledView backgroundColor={backgroundColor}>
@@ -29,13 +51,6 @@ const CustomButton = ({ children, onPress, backgroundColor, color }) => {
       </StyledView>
     </TouchableOpacity>
   );
-};
-
-CustomButton.propTypes = {
-  children: PropTypes.node.isRequired,
-  onPress: PropTypes.func.isRequired,
-  backgroundColor: PropTypes.string,
-  color: PropTypes.string,
 };
 
 export default CustomButton;
