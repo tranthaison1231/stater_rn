@@ -1,6 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { StyledTextInput } from './style';
+import styled from 'styled-components';
+import { TextInput } from 'react-native';
+
+const StyledTextInput = styled(TextInput)`
+  border: 1px solid #eee;
+  padding: 5px;
+  margin: 8px;
+`;
 
 const CustomInput = ({ onChangeText, value }) => {
   return (
@@ -12,11 +19,6 @@ const CustomInput = ({ onChangeText, value }) => {
       onChangeText={onChangeText}
     />
   );
-};
-
-CustomInput.propTypes = {
-  onChangeText: PropTypes.func.isRequired,
-  value: PropTypes.string.isRequired,
 };
 
 export default CustomInput;

@@ -1,6 +1,16 @@
 module.exports = {
   root: true,
-  extends: ['airbnb', 'prettier', 'prettier/react'],
+  extends: [
+    'airbnb',
+    'prettier',
+    'prettier/react',
+    'plugin:import/errors',
+    'plugin:import/warnings',
+    'plugin:@typescript-eslint/recommended',
+    'prettier/@typescript-eslint',
+    'plugin:import/typescript',
+  ],
+  parser: '@typescript-eslint/parser',
   plugins: [
     'prettier',
     'react-hooks',
@@ -8,7 +18,13 @@ module.exports = {
     'eslint-comments',
     'react',
     'jest',
+    '@typescript-eslint',
   ],
+  settings: {
+    'import/resolver': {
+      'babel-module': {},
+    },
+  },
   rules: {
     'prettier/prettier': [
       'error',
@@ -28,10 +44,7 @@ module.exports = {
     'import/no-named-as-default-member': 0,
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
-    'react/jsx-filename-extension': [
-      1,
-      { extensions: ['.tsx', '.jsx', '.js'] },
-    ],
+    'react/jsx-filename-extension': [1, { extensions: ['.ts', '.tsx'] }],
     'react/jsx-props-no-spreading': 0,
   },
   env: {

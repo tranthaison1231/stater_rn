@@ -5,7 +5,7 @@ const useColor = () => {
   const [green, setGreen] = useState(0);
   const [blue, setBlue] = useState(0);
 
-  const handleColor = (color, change) => {
+  const handleColor = (color: string, change: number): void | null => {
     switch (color) {
       case 'red':
         return red + change > 255 || red + change < 0
@@ -23,7 +23,7 @@ const useColor = () => {
         return null;
     }
   };
-  const color = `rgb(${red}, ${green}, ${blue})`;
+  const color: string = `rgb(${red}, ${green}, ${blue})`;
   return [color, handleColor];
 };
 

@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { View, Text } from 'react-native';
-import { CustomButton, CustomInput } from '../components/common';
+import CustomButton from 'components/common/CustomButton';
+import CustomInput from 'components/common/CustomInput';
 
 const TextScreen = () => {
   const [password, setPassword] = useState('');
-  const showAlert = () => {
+  const showAlert = (): void => {
     console.log('You need to...');
   };
   return (

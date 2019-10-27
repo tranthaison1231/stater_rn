@@ -1,11 +1,17 @@
 import React from 'react';
 import { View } from 'react-native';
-import { ColorCounter } from '../components/squares';
-import { StyledColor } from './styles';
-import { useColor } from '../hooks';
+import styled from 'styled-components';
+import { useColor } from 'hooks';
+import ColorCounter from 'components/ColorCounter';
+
+const StyledColor = styled(View)`
+  height: 100;
+  width: 100;
+  background-color: ${props => props.ramdomRgb};
+`;
 
 const SquareScreen = () => {
-  const [color, handleColor] = useColor();
+  const [color, handleColor] = useColor('');
   return (
     <View>
       <ColorCounter
@@ -27,9 +33,5 @@ const SquareScreen = () => {
     </View>
   );
 };
-
-SquareScreen.propTypes = {};
-
-SquareScreen.defaultProps = {};
 
 export default SquareScreen;
