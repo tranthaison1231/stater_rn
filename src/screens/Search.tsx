@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, FC } from 'react';
 import { View, Text } from 'react-native';
 import SearchBar from 'components/SearchBar';
 
-const SearchScreen = () => {
+const SearchScreen: FC = () => {
   const [term, setTerm] = useState('');
   return (
     <View>
@@ -16,9 +16,5 @@ const SearchScreen = () => {
     </View>
   );
 };
-
-SearchScreen.propTypes = {};
-
-SearchScreen.defaultProps = {};
 
 export default SearchScreen;

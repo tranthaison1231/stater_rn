@@ -13,7 +13,7 @@ module.exports = {
           'api/*': 'api/*',
           'navigation/*': 'navigation/*',
           'screens/*': 'screens/*',
-          'components/*': './components/*',
+          'components/*': 'components/*',
           'store/*': 'store/*',
           'utils/*': 'utils/*',
           'locales/*': 'locales/*',

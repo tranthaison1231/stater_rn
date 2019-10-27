@@ -22,10 +22,10 @@
       "hocs/*": ["./src/hocs/*"],
       "hooks": ["./src/hooks"],
       "hooks/*": ["./src/hooks/*"],
-      "components/*": ["/src/components/*"],
-      "api/*": ["/src/api/*"],
-      "screens/*": ["/src/screens/*"],
-      "assets/*": ["/src/assets/*"]
+      "components/*": ["./src/components/*"],
+      "api/*": ["./src/api/*"],
+      "screens/*": ["./src/screens/*"],
+      "assets/*": ["./src/assets/*"]
     }
   },
   "include": ["src"],

@@ -1,17 +1,21 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { View } from 'react-native';
 import styled from 'styled-components';
 import { useColor } from 'hooks';
 import ColorCounter from 'components/ColorCounter';
 
+type StyledColorProps = {
+  ramdomRgb: string;
+};
+
 const StyledColor = styled(View)`
   height: 100;
   width: 100;
-  background-color: ${props => props.ramdomRgb};
+  background-color: ${(props: StyledColorProps) => props.ramdomRgb};
 `;
 
-const SquareScreen = () => {
-  const [color, handleColor] = useColor('');
+const SquareScreen: FC = () => {
+  const { color, handleColor } = useColor();
   return (
     <View>
       <ColorCounter

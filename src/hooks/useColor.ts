@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
 const useColor = () => {
-  const [red, setRed] = useState(0);
-  const [green, setGreen] = useState(0);
-  const [blue, setBlue] = useState(0);
+  const [red, setRed] = useState<number>(0);
+  const [green, setGreen] = useState<number>(0);
+  const [blue, setBlue] = useState<number>(0);
 
   const handleColor = (color: string, change: number): void | null => {
     switch (color) {
@@ -24,7 +24,7 @@ const useColor = () => {
     }
   };
   const color: string = `rgb(${red}, ${green}, ${blue})`;
-  return [color, handleColor];
+  return { color, handleColor };
 };
 
 export default useColor;

@@ -1,7 +1,22 @@
-import React from 'react';
-import { View, Text, Button } from 'react-native';
+import React, { FC } from 'react';
+import {
+  View,
+  Text,
+  Button,
+  NativeSyntheticEvent,
+  NativeTouchEvent,
+} from 'react-native';
+interface ColorCounterProps {
+  color: string;
+  onIncrease: (ev: NativeSyntheticEvent<NativeTouchEvent>) => void;
+  onDecrease: (ev: NativeSyntheticEvent<NativeTouchEvent>) => void;
+}
 
-const ColorCounter = ({ color, onIncrease, onDecrease }) => {
+const ColorCounter: FC<ColorCounterProps> = ({
+  color,
+  onIncrease,
+  onDecrease,
+}) => {
   return (
     <View>
       <Text> {color}</Text>
@@ -10,6 +25,5 @@ const ColorCounter = ({ color, onIncrease, onDecrease }) => {
     </View>
   );
 };
-
 
 export default ColorCounter;

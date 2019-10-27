@@ -1,16 +1,12 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { View, Text } from 'react-native';
 
-const BoxScreen = () => {
+const BoxScreen: FC = () => {
   return (
     <View>
       <Text> Hello BoxScreen </Text>
     </View>
   );
 };
-
-BoxScreen.propTypes = {};
-
-BoxScreen.defaultProps = {};
 
 export default BoxScreen;

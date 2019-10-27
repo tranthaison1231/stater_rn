@@ -1,7 +1,13 @@
-import React from 'react';
-import { Text, Image, View } from 'react-native';
+import React, { FC } from 'react';
+import { Text, Image, View, ImageSourcePropType } from 'react-native';
 
-const ImageDetail = ({ title, image, score }) => {
+interface ImageDetailProps {
+  title: string;
+  image: ImageSourcePropType;
+  score: number;
+}
+
+const ImageDetail: FC<ImageDetailProps> = ({ title, image, score }) => {
   return (
     <View>
       <Image source={image} />

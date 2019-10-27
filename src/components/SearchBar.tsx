@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { View, TextInput } from 'react-native';
+import {
+  View,
+  TextInput,
+  NativeSyntheticEvent,
+  TextInputEndEditingEventData,
+} from 'react-native';
 
 Icon.loadFont();
 
@@ -23,7 +28,17 @@ const StyledIcon = styled(Icon)`
   margin: 0 15px;
 `;
 
-const SearchBar = ({ term, onTermChange, onTermSubmit }) => {
+interface SearchBarProps {
+  term: string;
+  onTermChange: (text: string) => void;
+  onTermSubmit: (e: NativeSyntheticEvent<TextInputEndEditingEventData>) => void;
+}
+
+const SearchBar: FC<SearchBarProps> = ({
+  term,
+  onTermChange,
+  onTermSubmit,
+}) => {
   return (
     <StyledSearchBar>
       <StyledIcon size={40} name="rocket" />

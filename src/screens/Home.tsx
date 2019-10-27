@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { SafeAreaView, Text, Button } from 'react-native';
-import PropTypes from 'prop-types';
+import { NavigationStackProp } from 'react-navigation-stack';
 
-const HomeScreen = ({ navigation }) => {
+type HomeScreenProps = {
+  navigation: NavigationStackProp;
+};
+
+const HomeScreen: FC<HomeScreenProps> = ({ navigation }) => {
   return (
     <SafeAreaView>
       <Text> Hello</Text>
@@ -34,11 +38,6 @@ const HomeScreen = ({ navigation }) => {
       />
     </SafeAreaView>
   );
-};
-
-HomeScreen.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  navigation: PropTypes.object.isRequired,
 };
 
 export default HomeScreen;

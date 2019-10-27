@@ -2,14 +2,18 @@ import React, { useState } from 'react';
 import { View, Button, Text, FlatList } from 'react-native';
 import styled from 'styled-components';
 
+interface StyledColorProps {
+  ramdomRgb: string;
+}
+
 const StyledColor = styled(View)`
   height: 100;
   width: 100;
-  background-color: ${({ ramdomRgb }) => ramdomRgb};
+  background-color: ${(props: StyledColorProps) => props.ramdomRgb};
 `;
 
 const ColorScreen = () => {
-  const [colors, setColors] = useState<String[]>([]);
+  const [colors, setColors] = useState<string[]>([]);
   const ramdomRgb = (): string => {
     const red = Math.floor(Math.random() * 256);
     const green = Math.floor(Math.random() * 256);
