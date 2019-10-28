@@ -7,34 +7,33 @@ interface DefaultTheme {
 }
 
 const useTheme = (
-  defaultTheme = { mode: 'light', textZoom: 'normal' },
-): DefaultTheme => {
-  const getInitialTheme = async (): any => {
-    const localTheme = await AsyncStorage.getItem('@theme');
-    return localTheme ? JSON.parse(localTheme) : defaultTheme;
+  defaultTheme: DefaultTheme = { mode: 'light', textZoom: 'normal' },
+): any => {
+  const getInitialTheme = async (): Promise<DefaultTheme> => {
+    try {
+      const localTheme = await AsyncStorage.getItem('@theme');
+      return localTheme ? JSON.parse(localTheme) : defaultTheme;
+    } catch (error) {
+      return defaultTheme;
+    }
   };
 
-  const [theme, setTheme] = useState(defaultTheme);
+  const [theme, setTheme] = useState<DefaultTheme>(defaultTheme);
   useEffect(() => {
-    const getLocalTheme = async (): any => {
-      await AsyncStorage.setItem('@theme', JSON.stringify(theme))
-        .then(() => {
-          console.log('success');
-        })
-        .catch(e => {
-          console.log(e);
-        });
+    const getLocalTheme = async (): Promise<void> => {
+      await AsyncStorage.setItem('@theme', JSON.stringify(theme));
     };
     getLocalTheme();
   }, [theme]);
-  const toggleDarkMode = (): any => {
+
+  const toggleDarkMode = (): void => {
     setTheme(
       theme.mode === 'dark'
         ? { ...theme, mode: 'light' }
         : { ...theme, mode: 'dark' },
     );
   };
-  const toggleSizeMode = (): any => {
+  const toggleSizeMode = (): void => {
     setTheme(
       theme.textZoom === 'normal'
         ? { ...theme, textZoom: 'magnify' }

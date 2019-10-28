@@ -1,10 +1,11 @@
 import React, { useState, FC, useContext } from 'react';
 import { View, Text, Button } from 'react-native';
 import SearchBar from 'components/SearchBar';
-import { searchYelp } from 'api/yelp';
 import ResultsList from 'components/ResultsList';
 import styled, { ThemeContext } from 'styled-components';
 import { getFontSize, getPalette } from 'theme';
+import { useDispatch, useSelector } from 'react-redux';
+import { getDataSearch } from 'redux/search/reducer';
 
 const StyledText = styled(Text)`
   background-color: ${props => getPalette(props).primary};
@@ -13,15 +14,10 @@ const StyledText = styled(Text)`
 
 const SearchScreen: FC = () => {
   const [term, setTerm] = useState('');
-  const [results, setResults] = useState();
-
-  const searchApi = async (searchTerm): Promise<void> => {
-    try {
-      const response = await searchYelp(50, searchTerm, 'san jose');
-      setResults(response.data.businesses);
-    } catch (err) {
-      console.error(err);
-    }
+  const dispatch = useDispatch();
+  const results = useSelector(state => state.search.data);
+  const searchApi = (searchTerm): void => {
+    dispatch(getDataSearch(50, searchTerm, 'san jose'));
   };
   const theme = useContext(ThemeContext);
   return (

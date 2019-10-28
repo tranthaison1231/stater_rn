@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import AppContainer from 'screens';
 import withRedux from 'hocs/withRedux';
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from 'styled-components/native';
 import useTheme from 'hooks/useTheme';
 
 const App: FC = () => {
@@ -13,4 +13,4 @@ const App: FC = () => {
   );
 };
 
-export default App;
+export default withRedux(App);
