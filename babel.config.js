@@ -36,6 +36,7 @@ module.exports = {
         regenerator: false,
       },
     ],
+    '@babel/plugin-proposal-optional-chaining',
     '@babel/proposal-object-rest-spread',
   ],
 };

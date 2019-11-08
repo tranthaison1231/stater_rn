@@ -3,13 +3,15 @@ import {
   getDataSearch,
   getDataSearchSuccess,
   getDataSearchFailure,
+  getResultById,
+  getResultByIdSuccess,
+  getResultByIdFailure,
 } from './reducer';
-import { searchYelp } from 'api/yelp';
+import { searchYelp, getResultsById } from 'api/yelp';
 
 
 export function* getDataSearchSaga({payload}) {
   try {
-    console.log(payload);
     const response = yield call(
       searchYelp,
       payload.limit,
@@ -26,6 +28,24 @@ export function* getDataSearchSaga({payload}) {
   }
 }
 
+
+export function* getResultByIdSaga({payload}) {
+  try {
+    const response = yield call(
+      getResultsById,
+      payload.id,
+    );
+    if (response?.data) {
+      yield put(getResultByIdSuccess(response.data));
+    } else {
+      throw response;
+    }
+  } catch (err) {
+    yield put(getResultByIdFailure(err));
+  }
+}
+
 export default [
   takeLatest(`${getDataSearch}`, getDataSearchSaga),
+  takeLatest(`${getResultById}`, getResultByIdSaga),
 ];

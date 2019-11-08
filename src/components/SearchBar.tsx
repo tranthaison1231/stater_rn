@@ -14,8 +14,8 @@ const StyledSearchBar = styled(View)`
   background-color: #f0eeee;
   height: 50px;
   border-radius: 5px;
-  margin: 0 15px;
   flex-direction: row;
+  margin: 0 0 10px 0;
 `;
 
 const StyledTextInput = styled(TextInput)`

@@ -15,3 +15,5 @@ export const searchYelp = (limit, term, location): any =>
       location,
     },
   });
+
+export const getResultsById = (id): any => yelp.get(`/${id}`);

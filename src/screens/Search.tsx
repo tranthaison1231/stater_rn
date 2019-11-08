@@ -1,5 +1,5 @@
 import React, { useState, FC, useContext } from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, Button, ScrollView } from 'react-native';
 import SearchBar from 'components/SearchBar';
 import ResultsList from 'components/ResultsList';
 import styled, { ThemeContext } from 'styled-components';
@@ -12,28 +12,43 @@ const StyledText = styled(Text)`
   font-size: ${getFontSize};
 `;
 
+const StyledView = styled(View)`
+  margin: 10px 0 0 10px;
+  flex: 1;
+`
+
 const SearchScreen: FC = () => {
   const [term, setTerm] = useState('');
   const dispatch = useDispatch();
-  const results = useSelector(state => state.search.data);
+  const { businesses: results, error: errorMessage } = useSelector(state => state.search.data);
   const searchApi = (searchTerm): void => {
-    dispatch(getDataSearch(50, searchTerm, 'san jose'));
+    dispatch(
+      getDataSearch({ limit: 50, term: searchTerm, location: 'san jose' }),
+    );
   };
   const theme = useContext(ThemeContext);
+
+  const filterResultsByPrice = price => {
+    return results?.filter(result => {
+      return result.price === price;
+    });
+  };
   return (
-    <View>
+    <StyledView>
       <SearchBar
         term={term}
         onTermChange={setTerm}
         onTermSubmit={(): any => searchApi(term)}
       />
       <Button title="Change Theme" onPress={theme.toggleDarkMode} />
-      <StyledText> Hello SearchScreen </StyledText>
-      <StyledText>We have found {results && results.length} results</StyledText>
-      <ResultsList title="Cost Effective" />
-      <ResultsList title="Bit Pricier" />
-      <ResultsList title="Big Spender" />
-    </View>
+      {/* <StyledText>We have found {results?.length} results</StyledText> */}
+      { errorMessage ? <Text> { errorMessage }</Text>: null}
+      <ScrollView>
+        <ResultsList results={filterResultsByPrice('$')} title="Cost Effective" />
+        <ResultsList results={filterResultsByPrice('$$')} title="Bit Pricier" />
+        <ResultsList results={filterResultsByPrice('$$$')} title="Big Spender" />
+      </ScrollView>
+    </StyledView>
   );
 };
 
