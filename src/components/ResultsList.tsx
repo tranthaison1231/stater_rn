@@ -23,7 +23,7 @@ const ResultsList: FC<ResultsListProps> = ({
   results,
 }: ResultsListProps) => {
   const { navigate } = useNavigation();
-  if (!results.length) {
+  if (!results?.length) {
     return null;
   }
   return (

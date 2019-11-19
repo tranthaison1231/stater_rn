@@ -3,14 +3,9 @@ import { View, Text, Button, ScrollView } from 'react-native';
 import SearchBar from 'components/SearchBar';
 import ResultsList from 'components/ResultsList';
 import styled, { ThemeContext } from 'styled-components';
-import { getFontSize, getPalette } from 'theme';
 import { useDispatch, useSelector } from 'react-redux';
 import { getDataSearch } from 'redux/search/reducer';
 
-const StyledText = styled(Text)`
-  background-color: ${props => getPalette(props).primary};
-  font-size: ${getFontSize};
-`;
 
 const StyledView = styled(View)`
   margin: 10px 0 0 10px;
@@ -41,7 +36,6 @@ const SearchScreen: FC = () => {
         onTermSubmit={(): any => searchApi(term)}
       />
       <Button title="Change Theme" onPress={theme.toggleDarkMode} />
-      {/* <StyledText>We have found {results?.length} results</StyledText> */}
       { errorMessage ? <Text> { errorMessage }</Text>: null}
       <ScrollView>
         <ResultsList results={filterResultsByPrice('$')} title="Cost Effective" />

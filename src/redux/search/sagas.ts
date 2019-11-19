@@ -1,4 +1,6 @@
 import { takeLatest, call, put, select, fork } from 'redux-saga/effects';
+import { searchYelp, getResultsById } from 'api/yelp';
+import { navigate } from 'utils/navigation';
 import {
   getDataSearch,
   getDataSearchSuccess,
@@ -7,7 +9,6 @@ import {
   getResultByIdSuccess,
   getResultByIdFailure,
 } from './reducer';
-import { searchYelp, getResultsById } from 'api/yelp';
 
 
 export function* getDataSearchSaga({payload}) {
@@ -20,6 +21,7 @@ export function* getDataSearchSaga({payload}) {
     );
     if (response?.data) {
       yield put(getDataSearchSuccess(response.data));
+      navigate('Square');
     } else {
       throw response;
     }
