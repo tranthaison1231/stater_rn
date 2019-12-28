@@ -1,15 +1,20 @@
 import React, { FC } from 'react';
 import { SafeAreaView, Text, Button } from 'react-native';
 import { NavigationStackProp } from 'react-navigation-stack';
+import styled from 'styled-components/native';
 
 type HomeScreenProps = {
   navigation: NavigationStackProp;
 };
 
+const StyledText = styled(Text)`
+  color: green;
+`;
+
 const HomeScreen: FC<HomeScreenProps> = ({ navigation }: HomeScreenProps) => {
   return (
     <SafeAreaView>
-      <Text> Hello</Text>
+      <StyledText> Hello</StyledText>
       <Button
         title="Go to Details"
         onPress={(): boolean => navigation.navigate('Details')}

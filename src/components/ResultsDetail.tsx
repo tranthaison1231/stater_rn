@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { View, Image, Text } from 'react-native';
 import styled from 'styled-components/native';
 
@@ -6,7 +6,6 @@ const StyledImage = styled(Image)`
   border-radius: 4px;
   width: 250px;
   height: 120px;
-  /* margin: 0 0 5px 0; */
 `;
 
 const StyledText = styled(Text)`
@@ -18,7 +17,14 @@ const StyledView = styled(View)`
   margin: 0 0 0 10px;
 `;
 
-const ResultsDetail = ({ result }) => {
+interface ResultsDetailProps {
+  image_url: string;
+  review_count: number;
+}
+
+const ResultsDetail: FC<ResultsDetailProps> = ({
+  result,
+}: ResultsDetailProps) => {
   return (
     <StyledView>
       <StyledImage source={{ uri: result.image_url }} />
