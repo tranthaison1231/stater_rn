@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux-starter-kit';
+import { combineReducers } from '@reduxjs/toolkit';
 import search from './search/reducer';
 
 const rootReducer = (): any => combineReducers({ search });
