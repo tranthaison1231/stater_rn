@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { SafeAreaView, Text, Button } from 'react-native';
+import { Text, Button, SafeAreaView } from 'react-native';
 import { NavigationStackProp } from 'react-navigation-stack';
 import styled from 'styled-components/native';
 
