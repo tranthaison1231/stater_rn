@@ -1,7 +1,6 @@
-/* eslint-disable no-param-reassign */
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction, createAction } from '@reduxjs/toolkit';
 
-type CurrentState = {
+type SliceState = {
   data: any;
   error: string;
   result: any;
@@ -13,44 +12,36 @@ interface CurrentSearch {
   location: string;
 }
 
-interface ResultById {
-  id: string;
-}
-
-const initialState: CurrentState = {
+const initialState: SliceState = {
   data: {},
   error: '',
   result: {},
 };
 
-const searchSlice = createSlice({
+const { actions, reducer } = createSlice({
   name: 'Search',
   initialState,
   reducers: {
-    getDataSearch: (state, action: PayloadAction<CurrentSearch>) => state,
-    getDataSearchSuccess: (state, action: PayloadAction<any>) => {
+    getDataSearchSuccess: (state, action: PayloadAction<any>): void => {
       state.data = action.payload;
     },
-    getDataSearchFailure: (state, action: PayloadAction<any>) => {
+    getDataSearchFailure: (state, action: PayloadAction<any>): void => {
       state.error = action.payload.message;
     },
-    getResultById: (state, action: PayloadAction<ResultById>) => state,
-    getResultByIdSuccess: (state, action: PayloadAction<any>) => {
+    getResultByIdSuccess: (state, action: PayloadAction<any>): void => {
       state.result = action.payload;
     },
-    getResultByIdFailure: (state, action: PayloadAction<any>) => {
+    getResultByIdFailure: (state, action: PayloadAction<any>): void => {
       state.error = action.payload.message;
     },
   },
 });
 
-const { actions, reducer } = searchSlice;
-
+export const getDataSearch = createAction('search/getDataSearch');
+export const getResultById = createAction('search/getResultById');
 export const {
-  getDataSearch,
   getDataSearchSuccess,
   getDataSearchFailure,
-  getResultById,
   getResultByIdSuccess,
   getResultByIdFailure,
 } = actions;

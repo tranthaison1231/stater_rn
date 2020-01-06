@@ -42,10 +42,15 @@ module.exports = {
     'import/prefer-default-export': 0,
     'import/no-named-as-default': 0,
     'import/no-named-as-default-member': 0,
+    'import/extensions': 0,
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
     'react/jsx-filename-extension': [1, { extensions: ['.ts', '.tsx'] }],
     'react/jsx-props-no-spreading': 0,
+    'no-param-reassign': [
+      'error',
+      { props: true, ignorePropertyModificationsForRegex: ['^state'] },
+    ],
   },
   env: {
     jest: true,
