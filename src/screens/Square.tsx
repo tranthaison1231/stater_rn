@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import { View } from 'react-native';
 import styled from 'styled-components';
-import { useColor } from 'hooks';
-import ColorCounter from 'components/ColorCounter';
+import ColorCounter from '@components/ColorCounter';
+import { useColor } from '../hooks';
 
 type StyledColorProps = {
   ramdomRgb: string;

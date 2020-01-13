@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { FC } from 'react';
 import {
   View,
@@ -17,7 +18,7 @@ const ColorCounter: FC<ColorCounterProps> = ({
   color,
   onIncrease,
   onDecrease,
-}: ColorCounterProps) => {
+}) => {
   return (
     <View>
       <Text> {color}</Text>

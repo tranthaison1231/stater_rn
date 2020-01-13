@@ -1,7 +1,7 @@
 import React, { useState, FC } from 'react';
 import { View, Text } from 'react-native';
-import CustomButton from 'components/common/CustomButton';
-import CustomInput from 'components/common/CustomInput';
+import CustomButton from '@components/common/CustomButton';
+import CustomInput from '@components/common/CustomInput';
 
 const TextScreen: FC = () => {
   const [password, setPassword] = useState('');

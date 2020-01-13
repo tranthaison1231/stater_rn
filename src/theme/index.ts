@@ -1,4 +1,4 @@
-import theme from 'utils/styled-theme';
+import theme from '@utils/styled-theme';
 
 export const getBackgroundButton = theme('mode', {
   light: {

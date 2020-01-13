@@ -1,34 +1,31 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
+    "esModuleInterop": true,
     "isolatedModules": true,
-    "noEmit": true,
     "jsx": "react",
+    "lib": ["es6", "dom"],
+    "moduleResolution": "node",
+    "noEmit": true,
+    "strict": true,
+    "target": "esnext",
     "baseUrl": ".",
-    "noImplicitAny": false,
     "paths": {
       "*": ["src/*"],
-      "hocs": ["./src/hocs"],
-      "hocs/*": ["./src/hocs/*"],
-      "hooks": ["./src/hooks"],
-      "hooks/*": ["./src/hooks/*"],
-      "components/*": ["./src/components/*"],
-      "api/*": ["./src/api/*"],
-      "screens/*": ["./src/screens/*"],
-      "assets/*": ["./src/assets/*"]
+      "api/*": ["src/api/*"],
+      "styles/*": ["src/styles/*"],
+      "navigation/*": ["src/navigation/*"],
+      "screens/*": ["src/screens/*"],
+      "components/*": ["src/components/*"],
+      "store/*": ["src/store/*"],
+      "ui/*": ["src/ui/*"],
+      "hooks/*": ["src/hooks/*"],
+      "platforms/*": ["src/platforms/*"],
+      "utils/*": ["src/utils/*"],
+      "redux/*": ["src/redux/*"]
     }
   },
-  "include": ["src"],
   "exclude": [
     "node_modules",
     "**/node_modules/*",
@@ -40,6 +37,7 @@
     ".eslintrc.js",
     "ios",
     "android",
-    "build"
+    "build",
+    "jest.config.js"
   ]
 }

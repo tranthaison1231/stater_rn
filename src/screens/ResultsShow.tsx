@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { View, Text, Image } from 'react-native';
-import useGetResultById from 'hooks/useGetResultById';
+import useGetResultById from '@hooks/useGetResultById';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components/native';
 import { FlatList } from 'react-native-gesture-handler';
@@ -19,7 +19,7 @@ const ResultsShowScreen: FC = () => {
       <FlatList
         data={result.photos}
         keyExtractor={photo => photo}
-        renderItem={({ item }) => {
+        renderItem={({ item }): any => {
           return <StyledImage source={{ uri: item }} />;
         }}
       />

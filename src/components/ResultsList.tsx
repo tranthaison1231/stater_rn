@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { View, Text, FlatList } from 'react-native';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation } from 'react-navigation-hooks';
 import ResultsDetail from './ResultsDetail';
