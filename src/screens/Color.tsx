@@ -1,4 +1,4 @@
-import React, { useState, FC } from 'react';
+import React, { useState, FC, ReactChild } from 'react';
 import { View, Button, Text, FlatList } from 'react-native';
 import HeartContainer from 'components/common/HeartContainer';
 import FloatButton from 'components/common/FloatButton';
@@ -22,14 +22,13 @@ const ColorScreen: FC = () => {
         title="Add Color"
         onPress={(): void => setColors([...colors, ramdomRgb()])}
       />
-      <Text style={{ fontFamily: 'Inter-Bold', fontSize: 30 }}>
-        {' '}
+      <Text style={{ fontFamily: 'Inter-Medium', fontSize: 30 }}>
         Hello ColorScreen
       </Text>
       <FlatList
         keyExtractor={(item, index): string => `${item}${index}`}
         data={colors}
-        renderItem={({ item }): any => {
+        renderItem={({ item }): ReactChild => {
           return (
             <View
               style={{

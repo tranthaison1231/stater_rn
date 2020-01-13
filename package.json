@@ -13,6 +13,7 @@
     "lint": "eslint src --ext .ts,.tsx --fix",
     "update": "ncu -u && yarn",
     "doctor": "npx @react-native-community/cli doctor",
+    "link": "react-native link",
     "devtools": "react-devtools"
   },
   "dependencies": {
