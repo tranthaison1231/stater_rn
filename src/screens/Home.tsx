@@ -47,6 +47,10 @@ const HomeScreen: FC<HomeScreenProps> = ({ navigation }: HomeScreenProps) => {
         title="Go to Search"
         onPress={(): boolean => navigation.navigate('Search')}
       />
+      <Button
+        title="Go to FlatList"
+        onPress={(): boolean => navigation.navigate('FlatList')}
+      />
     </SafeAreaView>
   );
 };

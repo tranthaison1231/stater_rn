@@ -1,4 +1,4 @@
-import { takeLatest, call, put, select, fork } from 'redux-saga/effects';
+import { takeLatest, call, put } from 'redux-saga/effects';
 import { searchYelp, getResultsById } from 'api/yelp';
 import { navigate } from 'utils/navigation';
 import {
@@ -11,7 +11,7 @@ import {
 } from './reducer';
 
 
-export function* getDataSearchSaga({payload}) {
+export function* getDataSearchSaga({payload}): void {
   try {
     const response = yield call(
       searchYelp,
@@ -31,7 +31,7 @@ export function* getDataSearchSaga({payload}) {
 }
 
 
-export function* getResultByIdSaga({payload}) {
+export function* getResultByIdSaga({payload}): void {
   try {
     const response = yield call(
       getResultsById,

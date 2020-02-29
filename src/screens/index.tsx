@@ -10,6 +10,7 @@ import TextScreen from './Text';
 import BoxScreen from './Box';
 import SearchScreen from './Search';
 import ResultsShowScreen from './ResultsShow';
+import FlatListScreen from './FlatList';
 
 const AppNavigator = createStackNavigator(
   {
@@ -19,6 +20,7 @@ const AppNavigator = createStackNavigator(
         title: 'Home',
       },
     },
+    FlatList: FlatListScreen,
     Details: DetailsScreen,
     Image: ImageScreen,
     Counter: CounterScreen,
